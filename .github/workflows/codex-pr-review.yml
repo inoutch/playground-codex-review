@@ -1,0 +1,22 @@
+name: Codex PR Review Comment
+
+on:
+  pull_request_target:
+    types: [synchronize, labeled]
+
+permissions:
+  issues: write
+  pull-requests: read
+
+jobs:
+  comment:
+    name: Post review request comment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post comment when label is present
+        if: contains(github.event.pull_request.labels.*.name, 'codex-pr-review') || github.event.label.name == 'codex-pr-review'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BODY: "@codex レビューしてください <!-- ./pr-review-propmts フォルダ内のドキュメントに従ってください -->"
+        run: |
+          gh api repos/$REPO/issues/$PR_NUMBER/comments -f body="$BODY"
