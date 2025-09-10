@@ -1,1 +1,1 @@
-AI エージェントがレビューする場合は、./pr-review-propmts フォルダ内のドキュメントに従ってください
+## Description

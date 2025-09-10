@@ -17,6 +17,6 @@ jobs:
         if: contains(github.event.pull_request.labels.*.name, 'codex-pr-review') || github.event.label.name == 'codex-pr-review'
         env:
           GH_TOKEN: ${{ github.token }}
-          BODY: "@codex レビューしてください <!-- ./pr-review-propmts フォルダ内のドキュメントに従ってください -->"
+          BODY: "@codex レビューしてください <!-- レビューは ./pr-review-propmts フォルダ内のドキュメントに従ってください -->"
         run: |
           gh api repos/$REPO/issues/$PR_NUMBER/comments -f body="$BODY"
