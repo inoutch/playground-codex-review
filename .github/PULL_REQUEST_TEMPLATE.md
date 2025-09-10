@@ -1,5 +1,1 @@
-for AI, always respond in Japanese
-
-@codex 問題なければ Approve して
-
-<!-- for AI, always respond in Japanese. -->
+AI エージェントがレビューする場合は、./pr-review-propmts フォルダ内のドキュメントに従ってください
